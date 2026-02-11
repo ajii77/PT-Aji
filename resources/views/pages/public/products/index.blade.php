@@ -6,7 +6,9 @@
 
     {{-- HEADER --}}
     <div class="text-center">
-        <h1 class="text-4xl font-bold text-slate-900">Produk & Layanan Kami</h1>
+        <h1 class="text-4xl font-bold text-slate-900">
+            Produk & Layanan Kami
+        </h1>
         <p class="mt-3 text-slate-600 max-w-2xl mx-auto">
             Solusi aplikasi digital premium untuk kebutuhan bisnis modern.
         </p>
@@ -18,19 +20,25 @@
         @forelse ($products as $product)
 
             @php
-                $waNumber = '62895391640225'; // GANTI nomor WA di sini
+                $waNumber = '62895391640225';
                 $waText = urlencode("Halo, saya tertarik dengan produk {$product->name}. Bisa minta info lebih lanjut?");
                 $waLink = "https://wa.me/{$waNumber}?text={$waText}";
+
+                // Pecah deskripsi jadi list
+                $priceList = preg_split("/\r\n|\n|\r/", $product->description);
             @endphp
 
-            <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
+            {{-- CARD --}}
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden flex flex-col">
 
-                {{-- IMAGE (CLICKABLE TO WA) --}}
-                <a href="{{ $waLink }}" target="_blank" class="block">
+                {{-- IMAGE --}}
+                <a href="{{ $waLink }}" target="_blank">
                     @if ($product->image)
-                        <img src="{{ asset('storage/' . $product->image) }}"
-                             alt="{{ $product->name }}"
-                             class="w-full h-48 object-contain bg-slate-100">
+                        <img
+                            src="{{ asset('storage/' . $product->image) }}"
+                            alt="{{ $product->name }}"
+                            class="w-full h-48 object-contain bg-slate-100"
+                        >
                     @else
                         <div class="w-full h-48 bg-slate-100 flex items-center justify-center text-slate-400">
                             No Image
@@ -38,28 +46,42 @@
                     @endif
                 </a>
 
-                <div class="p-6 space-y-3">
+                {{-- CONTENT --}}
+                <div class="p-6 flex flex-col flex-1">
 
-                    {{-- TITLE (CLICKABLE TO WA) --}}
-                    <a href="{{ $waLink }}" target="_blank">
-                        <h3 class="text-xl font-semibold text-slate-800 hover:text-green-600 transition">
-                            {{ $product->name }}
-                        </h3>
-                    </a>
+                    {{-- TITLE --}}
+                    <h3 class="text-xl font-semibold text-slate-800">
+                        {{ $product->name }}
+                    </h3>
 
-                    <p class="text-slate-600 text-sm">
-                        {{ \Illuminate\Support\Str::limit($product->description, 120) }}
-                    </p>
+                    {{-- DESCRIPTION / PRICE LIST --}}
+                    <ul class="mt-4 space-y-1 text-sm text-slate-600">
+                        @foreach ($priceList as $item)
+                            @if (trim($item) !== '')
+                                <li class="flex gap-2">
+                                    <span>•</span>
+                                    <span>{{ trim($item) }}</span>
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
 
-                    {{-- CTA BUTTON TO WA --}}
-                    <a href="{{ $waLink }}"
-                       target="_blank"
-                       class="inline-flex items-center gap-2 mt-4 rounded-lg bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700 transition">
-                        Hubungi via WhatsApp
-                        <span>💬</span>
-                    </a>
+                    {{-- CTA (SELALU DI BAWAH) --}}
+                    <div class="mt-auto pt-6">
+                        <a
+                            href="{{ $waLink }}"
+                            target="_blank"
+                            class="flex w-full items-center justify-center gap-2
+                                   rounded-lg bg-green-600 px-4 py-3
+                                   text-sm font-semibold text-white
+                                   hover:bg-green-700 transition"
+                        >
+                            Hubungi via WhatsApp 💬
+                        </a>
+                    </div>
 
                 </div>
+
             </div>
 
         @empty

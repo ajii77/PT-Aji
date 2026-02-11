@@ -7,62 +7,61 @@
     {{-- HEADER --}}
     <div class="text-center">
         <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900">
-            Klien yang Mempercayai Kami
+            Dipercaya oleh Pengguna Kami
         </h1>
-        <p class="mt-5 text-lg text-slate-600 max-w-3xl mx-auto">
-            Kami berkolaborasi dengan berbagai perusahaan, organisasi,
-            dan startup untuk menghadirkan solusi digital yang inovatif,
-            berdampak, dan berkelanjutan.
+        <p class="mt-5 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Kami menyediakan berbagai aplikasi premium dengan sistem yang aman,
+            cepat, dan bergaransi. Layanan kami digunakan oleh pengguna individu
+            yang membutuhkan solusi digital praktis dan terpercaya.
         </p>
     </div>
 
     {{-- HIGHLIGHT STATS --}}
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-        <div class="bg-white rounded-xl shadow p-8">
+        <div class="bg-white rounded-2xl shadow-sm border p-8">
             <h3 class="text-4xl font-bold text-slate-900">50+</h3>
-            <p class="mt-2 text-slate-600">Klien Aktif</p>
+            <p class="mt-2 text-slate-600">Pengguna Aktif</p>
         </div>
-        <div class="bg-white rounded-xl shadow p-8">
+        <div class="bg-white rounded-2xl shadow-sm border p-8">
             <h3 class="text-4xl font-bold text-slate-900">100+</h3>
-            <p class="mt-2 text-slate-600">Proyek Selesai</p>
+            <p class="mt-2 text-slate-600">Transaksi Berhasil</p>
         </div>
-        <div class="bg-white rounded-xl shadow p-8">
+        <div class="bg-white rounded-2xl shadow-sm border p-8">
             <h3 class="text-4xl font-bold text-slate-900">5+</h3>
             <p class="mt-2 text-slate-600">Tahun Pengalaman</p>
         </div>
     </div>
 
-    {{-- ARTICLE CONTENT --}}
-    <article class="prose prose-slate max-w-3xl mx-auto">
+    {{-- CONTENT --}}
+    <article class="prose prose-slate max-w-3xl mx-auto text-center">
         <p>
-            Kepercayaan klien adalah fondasi dari setiap kerja sama yang kami
-            bangun. Kami selalu mengutamakan kualitas, ketepatan waktu, dan
-            pendekatan solusi yang tepat sasaran sesuai dengan kebutuhan bisnis.
+            Kepercayaan pengguna merupakan fondasi utama layanan kami.
+            Oleh karena itu, kami selalu mengutamakan keamanan akun,
+            kejelasan sistem, serta layanan yang responsif dan transparan.
         </p>
 
         <p>
-            Dengan pengalaman di bidang teknologi digital, kami telah membantu
-            berbagai klien dalam mengembangkan aplikasi, sistem informasi,
-            platform digital, hingga solusi berbasis web dan mobile yang
-            berorientasi pada hasil.
+            Dengan pengalaman di bidang layanan digital, kami membantu
+            pengguna mendapatkan akses aplikasi premium yang stabil,
+            mudah digunakan, dan sesuai dengan kebutuhan sehari-hari.
         </p>
 
         <p>
-            Kami percaya bahwa kolaborasi yang solid akan menghasilkan solusi
-            terbaik. Oleh karena itu, kami menjaga komunikasi yang terbuka,
-            transparan, dan profesional di setiap tahap pengerjaan proyek.
+            Kami percaya bahwa layanan yang baik dibangun melalui komunikasi
+            yang jelas, proses yang rapi, dan komitmen terhadap kepuasan pengguna.
         </p>
     </article>
 
-    {{-- CTA --}}
-    <div class="text-center">
-        <a href="/contact"
-           class="inline-flex items-center px-8 py-4 bg-slate-900 text-white
-                  rounded-xl hover:bg-slate-800 transition">
-            Mulai Kolaborasi Bersama Kami
-        </a>
-    </div>
+   {{-- CTA --}}
+<div class="text-center">
+    <a href="{{ route('contact') }}"
+       class="inline-flex items-center px-8 py-4 bg-slate-900 text-white
+              rounded-xl font-semibold hover:bg-slate-800 transition">
+        Hubungi Kami Sekarang
+    </a>
+</div>
 
 </section>
+
 
 @endsection

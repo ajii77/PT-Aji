@@ -43,7 +43,7 @@ class ProductController extends Controller
         ]);
 
         return redirect()
-            ->route('admin.products.')
+            ->route('admin.products.index')
             ->with('success', 'Produk berhasil ditambahkan');
     }
 

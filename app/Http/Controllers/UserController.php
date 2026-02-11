@@ -14,7 +14,6 @@ class UserController extends Controller
     | PRODUCTS (PUBLIC)
     |--------------------------------------------------------------------------
     */
-
     public function index()
     {
         $products = Product::latest()->get();
@@ -31,7 +30,6 @@ class UserController extends Controller
     | ABOUT
     |--------------------------------------------------------------------------
     */
-
     public function about()
     {
         return view('pages.public.about.index');
@@ -42,7 +40,6 @@ class UserController extends Controller
     | CLIENTS
     |--------------------------------------------------------------------------
     */
-
     public function client()
     {
         return view('pages.public.clients.index');
@@ -53,7 +50,6 @@ class UserController extends Controller
     | EVENTS
     |--------------------------------------------------------------------------
     */
-
     public function event()
     {
         return view('pages.public.events.index');
@@ -64,7 +60,6 @@ class UserController extends Controller
     | GALLERY (CONNECTED TO ADMIN)
     |--------------------------------------------------------------------------
     */
-
     public function gallery()
     {
         $galleries = Gallery::latest()->get();
@@ -76,7 +71,6 @@ class UserController extends Controller
     | ARTICLES (PUBLIC)
     |--------------------------------------------------------------------------
     */
-
     public function article()
     {
         $articles = Article::latest()->paginate(9);
@@ -86,5 +80,30 @@ class UserController extends Controller
     public function articleShow(Article $article)
     {
         return view('pages.public.article.show', compact('article'));
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | CONTACT
+    |--------------------------------------------------------------------------
+    */
+    public function contact()
+    {
+        return view('pages.public.contact.index');
+    }
+
+    public function contactStore(Request $request)
+    {
+        $request->validate([
+            'name'    => 'required|string|max:100',
+            'email'   => 'required|email',
+            'message' => 'required|string',
+        ]);
+
+        // sementara belum disimpan ke database
+
+        return redirect()
+            ->route('contact')
+            ->with('success', 'Pesan berhasil dikirim!');
     }
 }

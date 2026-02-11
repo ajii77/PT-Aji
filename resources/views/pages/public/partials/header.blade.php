@@ -12,15 +12,18 @@
         <a href="{{ route('clients') }}" class="hover:text-sky-400">Clients</a>
         <a href="{{ route('gallery') }}" class="hover:text-sky-400">Gallery</a>
         <a href="{{ route('vision') }}" class="hover:text-sky-400">Vision & Mission</a>
+        <a href="{{ route('contact') }}" class="hover:text-sky-400">Contact</a>
+
+    
 
         <div class="ml-auto">
             @auth
                 <a href="{{ route('admin.dashboard') }}" class="text-sky-400 font-semibold">
-                    Dashboard
+                   
                 </a>
             @else
                 <a href="{{ route('login') }}" class="text-sky-400 font-semibold">
-                    Login
+                    
                 </a>
             @endauth
         </div>

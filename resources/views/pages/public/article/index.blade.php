@@ -9,10 +9,6 @@
 
     {{-- HEADER --}}
     <div class="text-center max-w-3xl mx-auto">
-        <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm text-slate-700 shadow-sm">
-            <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-            Artikel & Insight
-        </span>
 
         <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-slate-900">
             Artikel Terbaru
@@ -43,12 +39,13 @@
                 {{-- IMAGE --}}
                 @if ($thumbnailUrl)
                     <a href="{{ route('article.show', $article) }}" class="block overflow-hidden">
-                        <img
-                            src="{{ $thumbnailUrl }}"
-                            alt="{{ $article->title }}"
-                            class="h-48 w-full object-cover group-hover:scale-105 transition"
-                            loading="lazy"
-                        >
+                       <img
+    src="{{ $thumbnailUrl }}"
+    alt="{{ $article->title }}"
+    class="h-40 sm:h-48 lg:h-56 w-full object-contain bg-slate-100 transition"
+    loading="lazy"
+>
+
                     </a>
                 @else
                     <div class="h-48 bg-slate-100 flex items-center justify-center text-slate-400">

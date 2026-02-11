@@ -10,9 +10,9 @@
     <div class="grid md:grid-cols-2 gap-12 items-center">
 
         <div>
-            <h2 class="text-3xl font-bold mb-4">
-                Tentang Perusahaan
-            </h2>
+           <h2 class="text-3xl md:text-3xl font-bold text-slate-900 mb-4">
+    Tentang Perusahaan
+</h2>
             <p class="text-slate-700 leading-relaxed mb-6">
                 <strong>PT Aji Digital Solutions</strong> adalah perusahaan
                 yang bergerak di bidang <strong>penjualan dan pengembangan aplikasi digital premium</strong>,
